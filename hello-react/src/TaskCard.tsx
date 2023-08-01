@@ -12,20 +12,20 @@ interface TaskCardProps {
   task: Task;
 }
 
-function TaskCard(props: TaskCardProps) {
-  const { task } = props;
+const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
+  const { title, dueDate, completedAtDate, assigneeName } = task;
 
   return (
     <div className="TaskItem">
-      <h2 className="text-xl font-bold">{task.title}</h2>
-      {task.completedAtDate ? (
-        <p>Completed on: {task.completedAtDate}</p>
+      <h2 className="text-xl font-bold">{title}</h2>
+      {completedAtDate ? (
+        <p>Completed on: {completedAtDate}</p>
       ) : (
-        <p>Due on: {task.dueDate}</p>
+        dueDate && <p>Due on: {dueDate}</p>
       )}
-      <p>Assignee: {task.assigneeName}</p>
+      {assigneeName && <p>Assignee: {assigneeName}</p>}
     </div>
   );
-}
+};
 
 export default TaskCard;
