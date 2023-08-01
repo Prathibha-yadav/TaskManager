@@ -1,29 +1,25 @@
 import React from 'react';
 import './TaskCard.css';
 
-interface Task {
+interface TaskDetails {
   title: string;
   dueDate?: string;
   completedAtDate?: string;
   assigneeName: string;
 }
-
-interface TaskCardProps {
-  task: Task;
-}
-
-const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
-  const { title, dueDate, completedAtDate, assigneeName } = task;
-
+const TaskCard = (props: TaskDetails) => {
+  let TempDate: string;
+  if (props.dueDate) {
+    TempDate = `Due on: ${props.dueDate}`;
+  }
+  if (props.completedAtDate) {
+    TempDate = `Completed on: ${props.completedAtDate}`;
+  }
   return (
-    <div className="TaskItem">
-      <h2 className="text-xl font-bold">{title}</h2>
-      {completedAtDate ? (
-        <p>Completed on: {completedAtDate}</p>
-      ) : (
-        dueDate && <p>Due on: {dueDate}</p>
-      )}
-      {assigneeName && <p>Assignee: {assigneeName}</p>}
+    <div className="TaskItem w-full p-5">
+      <h2 className="text-xl font-bold mb-2">{props.title}</h2>
+      <p>{TempDate}</p>
+      <p>Assignee: {props.assigneeName}</p>
     </div>
   );
 };
