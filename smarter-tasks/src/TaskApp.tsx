@@ -1,25 +1,27 @@
-import React from "react";
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-React.useState<TaskAppState>;
 
 interface TaskAppState {
   tasks: TaskItem[];
 }
+
 const TaskApp = () => {
   const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>("tasks", {
     tasks: [],
   });
+
   const addTask = (task: TaskItem) => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
-  const removeTask = (index: number) => {
-    const newTasks = [...taskAppState.tasks];
-    newTasks.splice(index, 1);
-    setTaskAppState({ tasks: newTasks });
+
+  const removeTask = (task: TaskItem) => {
+    setTaskAppState((prevTaskAppState) => ({
+      tasks: prevTaskAppState.tasks.filter((t) => t !== task),
+    }));
   };
+
   return (
     <div className="container py-10 max-w-4xl mx-auto">
       <h1 className="text-3xl mb-2 font-bold text-slate-700">
@@ -35,7 +37,7 @@ const TaskApp = () => {
             Pending
           </h1>
           <TaskForm addTask={addTask} />
-          <TaskList tasks={taskAppState.tasks} removeTask={removeTask}/>
+          <TaskList tasks={taskAppState.tasks} removeTask={removeTask} />
         </div>
       </div>
     </div>
