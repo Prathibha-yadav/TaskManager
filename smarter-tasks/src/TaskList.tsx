@@ -7,8 +7,8 @@ interface Props {
 }
 
 const TaskList = (props: Props) => {
-  const list = props.tasks.map((task) => (
-    <li >
+  const list = props.tasks.map((task, index) => (
+    <li key={index}>
       <Task item={task} removeTask={() => props.removeTask(task)} />
     </li>
   ));
