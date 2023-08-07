@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <TaskListPage />,
       },
       {
-        path: "/tasks/:id",
+        path:  "/tasks/:title/:description/:dueDate",
         element: <TaskDetailsPage />,
       },
     ],
