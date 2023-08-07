@@ -1,36 +1,33 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
-interface TaskAppProp {}
-
 interface TaskAppState {
   tasks: TaskItem[];
 }
 
-const TaskApp = (_props: TaskAppProp) => {
-  const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>(
-    "tasks",
-    {
-      tasks: [],
-    },
-  );
-
-  const deleteTask = (index: number) => {
-    const updatedTasks = [...taskAppState.tasks];
-    updatedTasks.splice(index, 1);
-    setTaskAppState({ tasks: updatedTasks });
-  };
+const TaskApp = () => {
+  const [taskAppState, setTaskAppState] = useLocalStorage<TaskAppState>("tasks", {
+    tasks: [],
+  });
 
   const addTask = (task: TaskItem) => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
 
+  const removeTask = (task: TaskItem) => {
+    setTaskAppState((prevTaskAppState) => ({
+      tasks: prevTaskAppState.tasks.filter((t) => t !== task),
+    }));
+  };
+  
+
   return (
     <div className="container py-10 max-w-4xl mx-auto">
-      <h1 className="text-3xl mb-2 font-bold text-slate-700">Smarter Tasks</h1>
+      <h1 className="text-3xl mb-2 font-bold text-slate-700">
+        Smarter Tasks
+      </h1>
       <h1 className="text-lg mb-6 text-slate-600">
         <span className="font-bold">Project: </span>
         Graduation Final Year Project (Revamp college website)
@@ -41,7 +38,7 @@ const TaskApp = (_props: TaskAppProp) => {
             Pending
           </h1>
           <TaskForm addTask={addTask} />
-          <TaskList tasks={taskAppState.tasks} deleteTask={deleteTask} />
+          <TaskList tasks={taskAppState.tasks} removeTask={removeTask} />
         </div>
       </div>
     </div>
