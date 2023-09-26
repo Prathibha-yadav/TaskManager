@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 //projects/ProjectListItem.tsx
-import React from "react";
 import { useProjectsState } from "../../context/projects/context";
 export default function ProjectListItems() {
 

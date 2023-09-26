@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { fetchProjects } from "../../context/projects/actions";
-
-//projects/ProjectList.tsx
 import { useProjectsDispatch } from "../../context/projects/context";
 
 import ProjectListItems from './ProjectListItems';
