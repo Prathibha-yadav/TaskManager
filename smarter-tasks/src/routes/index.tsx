@@ -1,10 +1,10 @@
 import AccountLayout from "../layouts/account";
-import ProtectedRoutes from "./ProtectedRoute";
+import ProtectedRoutes from "./ProtectedRoutes";
 import Signin from "../pages/signin";
 import Signup from "../pages/signup";
 import Projects from "../pages/projects";
 import Members from "../pages/members";
-import Logout from "../pages/Logout";
+import Logout from "../pages/logout";
 import Notfound from "../pages/Notfound";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
