@@ -28,6 +28,17 @@ const Container = (
   );
 };
 
+const TaskList = forwardRef<HTMLDivElement | null, React.PropsWithChildren>(
+  (props: React.PropsWithChildren, ref) => {
+    return (
+      <div ref={ref} className="grow min-h-100 dropArea" {...props}>
+        {" "}
+        {props.children}
+      </div>
+    );
+  }
+);
+
 const Task = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<{ task: TaskDetails }>
@@ -80,4 +91,4 @@ const Task = forwardRef<
   );
 });
 
-export default Task;
+export default Container;

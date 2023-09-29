@@ -12,9 +12,9 @@ const DragDropList = (props: {
 }) => {
   const taskDispatch = useTasksDispatch();
 
-  const Container = (props: React.PropsWithChildren) => {
-    return <div className="flex">{props.children}</div>;
-  };
+const Container = (props: React.PropsWithChildren) => {
+  return <div className="flex">{props.children}</div>;
+};
 
   const onDragEnd: OnDragEndResponder = (result) => {
     const { destination, source, draggableId } = result;
