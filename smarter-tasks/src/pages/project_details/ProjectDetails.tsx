@@ -1,14 +1,20 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prefer-const */
-// import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import { useTasksDispatch, useTasksState } from "../../context/task/context";
+
+import DragDropList from "./DragDropList";
+import { refreshTasks } from "../../context/task/actions";
 import { useProjectsState } from "../../context/projects/context";
 
 const ProjectDetails = () => {
+  const tasksState = useTasksState();
+  const taskDispatch = useTasksDispatch();
   const projectState = useProjectsState();
   let { projectID } = useParams();
-
+  useEffect(() => {
+    if (projectID) refreshTasks(taskDispatch, projectID);
+  }, [projectID, taskDispatch]);
   const selectedProject = projectState?.projects.filter(
     (project) => `${project.id}` === projectID
   )?.[0];
@@ -17,6 +23,9 @@ const ProjectDetails = () => {
     return <>No such Project!</>;
   }
 
+  if (tasksState.isLoading) {
+    return <>Loading...</>;
+  }
   return (
     <>
       <div className="flex justify-between">
@@ -31,6 +40,9 @@ const ProjectDetails = () => {
             New Task
           </button>
         </Link>
+      </div>
+      <div className="grid grid-cols-1 gap-2">
+        <DragDropList data={tasksState.projectData} />
       </div>
     </>
   );

@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useUsersState } from "../../context/members/context";
+import { useMembersState } from "../../context/members/context";
 import { deleteUser } from "../../context/members/actions";
-import { useUsersDispatch } from "../../context/members/context";
+import { useMembersDispatch } from "../../context/members/context";
 
 export default function MemberListItems() {
-  const state: any = useUsersState();
+  const state: any = useMembersState();
 
   const { users, isLoading, isError, errorMessage } = state;
   console.log(state);
@@ -17,7 +17,7 @@ export default function MemberListItems() {
   if (isError) {
     return <span>{errorMessage}</span>;
   }
-  const dispatchUsers = useUsersDispatch();
+  const dispatchUsers = useMembersDispatch();
   const handleDelete = (userId: number) => {
     deleteUser(dispatchUsers, userId);
     // window.location.reload();

@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { addUser } from "../../context/members/actions";
-import { useUsersDispatch } from "../../context/members/context";
+import { useMembersDispatch } from "../../context/members/context";
 
 type Inputs = {
   name: string;
@@ -15,7 +15,7 @@ const NewMember = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(null);
 
-  const dispatchUsers = useUsersDispatch();
+  const dispatchUsers = useMembersDispatch();
 
   const openModal = () => {
     setIsOpen(true);

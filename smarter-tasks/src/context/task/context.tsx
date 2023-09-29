@@ -3,6 +3,7 @@ import { taskReducer, initialState } from "./reducer";
 import { TaskListState, TasksDispatch } from "./types";
 const TasksStateContext = createContext<TaskListState>(initialState);
 const TasksDispatchContext = createContext<TasksDispatch>(() => {});
+
 export const TasksProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {

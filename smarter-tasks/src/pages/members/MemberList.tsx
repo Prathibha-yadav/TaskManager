@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { fetchUsers } from "../../context/members/actions";
-import { useUsersDispatch } from "../../context/members/context";
+import { useMembersDispatch } from "../../context/members/context";
 
 import MemberListItems from "./MemberListItems";
 
 const MemberList: React.FC = () => {
-  const dispatchUsers = useUsersDispatch();
+  const dispatchUsers = useMembersDispatch();
 
   useEffect(() => {
     fetchUsers(dispatchUsers);

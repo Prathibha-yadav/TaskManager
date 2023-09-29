@@ -5,7 +5,7 @@ export interface User {
     password: string;
   }
   
-  export interface UsersState {
+  export interface MemberState {
     users: User[];
     isLoading: boolean;
     isError: boolean;
@@ -19,7 +19,7 @@ export interface User {
     | { type: "ADD_USER_SUCCESS"; payload: User }
     | { type: "DELETE_USER_SUCCESS"; payload: number };
   
-  export const initialState: UsersState = {
+  export const initialState: MemberState = {
     users: [],
     isLoading: false,
     isError: false,
@@ -27,9 +27,9 @@ export interface User {
   };
   
   export const reducer = (
-    state: UsersState = initialState,
+    state: MemberState = initialState,
     action: UsersActions,
-  ): UsersState => {
+  ): MemberState => {
     switch (action.type) {
       case "FETCH_USERS_REQUEST":
         return {

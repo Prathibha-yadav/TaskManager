@@ -1,8 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
-import { reducer, initialState, UsersState, UsersActions } from "./reducer";
+import { reducer, initialState, MemberState, UsersActions } from "./reducer";
 
-const UsersStateContext = createContext<UsersState | undefined>(undefined);
+const UsersStateContext = createContext<MemberState | undefined>(undefined);
 
 type UsersDispatch = React.Dispatch<UsersActions>;
 
@@ -24,5 +24,5 @@ export const UsersProvider: React.FC<React.PropsWithChildren> = ({
   );
 };
 
-export const useUsersState = () => useContext(UsersStateContext);
-export const useUsersDispatch = () => useContext(UsersDispatchContext);
+export const useMembersState = () => useContext(UsersStateContext);
+export const useMembersDispatch = () => useContext(UsersDispatchContext);
