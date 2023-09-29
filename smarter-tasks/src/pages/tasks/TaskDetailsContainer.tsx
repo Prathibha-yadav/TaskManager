@@ -13,7 +13,7 @@ const TaskDetailsContainer = () => {
   // We will render a loader based on the status,
   // We make sure, the tasks have been fetched, project is a valid one.
   if (isFetchingTasks || !projectState || projectState?.isLoading) {
- return <>Loading...</>;
+ return <>Loadingg...</>;
   }
   if (!selectedTask) {
     return <>No such task!</>;

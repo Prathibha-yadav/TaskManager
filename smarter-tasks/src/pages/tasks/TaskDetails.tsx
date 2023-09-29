@@ -64,7 +64,7 @@ const TaskDetails = () => {
   }
 
   const onSubmit: SubmitHandler<TaskFormUpdatePayload> = async (data) => {
-    const assignee = memberState?.members?.filter(
+    const assignee = memberState?.users?.filter(
       (member) => member.name === selectedPerson
     )?.[0];
     updateTask(taskDispatch, projectID ?? "", {
@@ -149,7 +149,7 @@ const TaskDetails = () => {
                           {selectedPerson}
                         </Listbox.Button>
                         <Listbox.Options className="absolute mt-1 max-h-60 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                          {memberState?.members.map((person) => (
+                          {memberState?.users.map((person) => (
                             <Listbox.Option
                               key={person.id}
                               className={({ active }) =>
