@@ -83,6 +83,7 @@ const NewTask = () => {
                         placeholder="Enter title"
                         autoFocus
                         id="title"
+                        name="title"
                         // Register the title field
                         {...register("title", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
@@ -93,6 +94,7 @@ const NewTask = () => {
                         placeholder="Enter description"
                         autoFocus
                         id="description"
+                        name="description"
                         // register the description field
                         {...register("description", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
@@ -103,6 +105,7 @@ const NewTask = () => {
                         placeholder="Enter due date"
                         autoFocus
                         id="dueDate"
+                        name="dueDate"
                         // register due date field
                         {...register("dueDate", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"

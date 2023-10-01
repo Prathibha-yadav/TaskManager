@@ -83,6 +83,7 @@ const NewProject = () => {
                       <input
                         type="text"
                         id = "name"
+                        name = "name"
                         placeholder='Enter project name...'
                         autoFocus
                         {...register('Name', { required: true })}
