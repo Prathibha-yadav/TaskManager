@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,7 +10,7 @@ import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { Dialog, Transition, Listbox } from "@headlessui/react";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
-
+import  NewComment from "../tasks/NewComment";
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
 };
@@ -44,7 +45,7 @@ const TaskDetails = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
   } = useForm<TaskFormUpdatePayload>({
     defaultValues: {
       title: selectedTask.title,
@@ -200,6 +201,7 @@ const TaskDetails = () => {
                         Cancel
                       </button>
                     </form>
+                    <NewComment />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

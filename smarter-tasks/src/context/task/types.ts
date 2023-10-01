@@ -55,17 +55,20 @@ export interface TaskListState {
         description: string;
         dueDate: string;
         state: AvailableColumns;
-        assignee?: number,
-        assignedUserName?: string
+        assignee?: number;
+        assignedUserName?: string;
       };
+      
       export type Tasks = {
         [k: string]: TaskDetails;
       };
+      
       export type ProjectData = {
         tasks: Tasks;
         columns: Columns;
         columnOrder: AvailableColumns[];
       };
+      
       export interface TaskListState {
         projectData: ProjectData;
         isLoading: boolean;
