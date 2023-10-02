@@ -10,7 +10,7 @@ export type Comment = {
   createdAt: string;
   owner: number;
   taskID: number;
-  user: User
+  User: User
 };
 export type CommentsData = Comment;
 export type CommentDetailsPayload = Omit<Comment, "id" | "createdAt" | "owner" | "taskID" | "user" | "state">;
