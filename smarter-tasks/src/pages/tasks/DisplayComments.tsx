@@ -33,9 +33,9 @@ export const DisplayComments: React.FC = () => {
             <div
               className=" comment flex text-gray-800 "
             >
-              <div className=" comment mr-3">{comment.description}</div>
-              <div className="comment mr-3">{getDate(comment.createdAt)}</div>
-              <div className="comment mr-3">{getuser(comment.owner)}</div>
+              <div className=" mr-3">{comment.description}</div>
+              <div className=" mr-3">{getDate(comment.createdAt)}</div>
+              <div className=" mr-3">{getuser(comment.owner)}</div>
             </div>
           </div>
         )
