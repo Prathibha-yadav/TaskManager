@@ -66,16 +66,6 @@ const router = createBrowserRouter([
                     path: ":taskID",
                     children: [
                       { index: true, element: <TaskDetailsContainer /> },
-                      {
-                        path: "comments",
-                        children: [
-                          { index: true, element: <ProjectDetails/> },
-                          // {
-                          //   path: ":commentID",
-                          //   element: <CommentDetails />,
-                          // },
-                        ],
-                      },
                     ],
                   },
                 ],
