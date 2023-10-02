@@ -10,7 +10,7 @@ import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { Dialog, Transition, Listbox } from "@headlessui/react";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
-import  NewComment from "../tasks/NewComment";
+import  {NewComment} from "./NewComment";
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
 };

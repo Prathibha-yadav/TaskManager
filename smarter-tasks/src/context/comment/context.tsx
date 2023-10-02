@@ -1,27 +1,21 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { commentsReducer, initialState } from "./reducer";
-import { CommentsListState, CommentsDispatch } from "./types";
+import { commentReducer, initialCommentState } from "./reducer";
+import { CommentDispatch, CommentState } from "./types";
 
-// Create a context for comments
-const CommentsStateContext = createContext<CommentsListState>(initialState);
-const CommentsDispatchContext = createContext<CommentsDispatch>(() => {});
-console.log(CommentsDispatchContext);
-// Create a CommentsProvider component
-export const CommentsProvider: React.FC<React.PropsWithChildren> = ({
-  children,
-}) => {
-  // Create a state and dispatch with `useReducer` passing in the `commentsReducer` and an initial state.
-  const [state, dispatch] = useReducer(commentsReducer, initialState);
 
+const CommentStateContext = createContext<CommentState>(initialCommentState);
+const CommentDispatchContext = createContext<CommentDispatch>(() => { });
+
+export const CommentProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const [state, dispatch] = useReducer(commentReducer, initialCommentState);
   return (
-    <CommentsStateContext.Provider value={state}>
-      <CommentsDispatchContext.Provider value={dispatch}>
+    <CommentStateContext.Provider value={state}>
+      <CommentDispatchContext.Provider value={dispatch}>
         {children}
-      </CommentsDispatchContext.Provider>
-    </CommentsStateContext.Provider>
-  );
-};
+      </CommentDispatchContext.Provider>
+    </CommentStateContext.Provider>
+  )
+}
 
-// Custom hooks to extract the `state` and `dispatch` out of the context
-export const useCommentsState = () => useContext(CommentsStateContext);
-export const useCommentsDispatch = () => useContext(CommentsDispatchContext);
+export const useCommentState = () => useContext(CommentStateContext);
+export const useCommentDispatch = () => useContext(CommentDispatchContext);

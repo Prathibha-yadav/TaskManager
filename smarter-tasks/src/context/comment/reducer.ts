@@ -1,42 +1,52 @@
 import { Reducer } from "react";
-import {  CommentsActions, CommentsListAvailableAction, CommentsListState} from "./types";
+import { CommentAction, CommentAvailableAction, CommentState } from "./types";
 
-export const initialState: CommentsListState = {
-  commentsData: [],
+export const initialCommentState: CommentState = {
+  comments: [],
   isLoading: false,
   isError: false,
-  errorMessage: "",
-};
+  errorMessage: ""
+}
 
-
-export const commentsReducer: Reducer<CommentsListState, CommentsActions> = (
-  state = initialState,
-  action
-) => {
+export const commentReducer: Reducer<CommentState, CommentAction> = (state = initialCommentState, action): CommentState => {
   switch (action.type) {
-    case CommentsListAvailableAction.FETCH_COMMENTS_REQUEST:
-      return { ...state, isLoading: true };
-    case CommentsListAvailableAction.FETCH_COMMENTS_SUCCESS:
-      return { ...state, isLoading: false, commentsData: action.payload };
-    case CommentsListAvailableAction.FETCH_COMMENTS_FAILURE:
+    case CommentAvailableAction.FETCH_COMMENT_REQUEST:
       return {
         ...state,
-        isLoading: false,
-        isError: true,
-        errorMessage: action.payload,
+        isLoading: true,
       };
-    case CommentsListAvailableAction.CREATE_COMMENTS_REQUEST:
-      return { ...state, isLoading: true };
-    case CommentsListAvailableAction.CREATE_COMMENTS_SUCCESS:
-      return { ...state, isLoading: false };
-    case CommentsListAvailableAction.CREATE_COMMENTS_FAILURE:
+    case CommentAvailableAction.FETCH_COMMENT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        comments: action.payload
+      };
+    case CommentAvailableAction.FETCH_COMMENT_FAILURE:
       return {
         ...state,
         isLoading: false,
         isError: true,
-        errorMessage: action.payload,
+        errorMessage: action.payload
+      };
+    case CommentAvailableAction.ADD_COMMENT_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case CommentAvailableAction.ADD_COMMENT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        comments: [action.payload, ...state.comments]
+      };
+    case CommentAvailableAction.ADD_COMMENT_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload
       };
     default:
       return state;
   }
-};
+}

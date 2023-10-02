@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 
 import { useProjectsState } from "../../context/projects/context";
 import { useTasksState } from "../../context/task/context";
