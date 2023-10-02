@@ -37,8 +37,9 @@ export const NewComment = () => {
         >
           Add Comment
         </button>
+        <DisplayComments />
       </form>
-      <DisplayComments />
+      
     </>
   )
 } 
