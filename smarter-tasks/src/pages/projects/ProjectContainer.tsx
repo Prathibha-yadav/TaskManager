@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useProjectsDispatch } from "../../context/projects/context";
 import { fetchProjects } from "../../context/projects/actions";
 import { Outlet } from "react-router-dom";

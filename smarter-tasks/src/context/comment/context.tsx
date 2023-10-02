@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
 import { commentReducer, initialCommentState } from "./reducer";
 import { CommentDispatch, CommentState } from "./types";

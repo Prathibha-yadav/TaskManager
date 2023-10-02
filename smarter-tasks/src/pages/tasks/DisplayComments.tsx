@@ -26,18 +26,13 @@ export const DisplayComments: React.FC = () => {
     <>
       {Array.isArray(comments) && comments.map((comment) => {
         return (
-          <div
-            key={comment.id}
-            className="comment"
-          >
-            <div
-              className=" comment flex text-gray-800 "
-            >
-              <div className=" mr-3">{comment.description}</div>
-              <div className=" mr-3">{getDate(comment.createdAt)}</div>
-              <div className=" mr-3">{getuser(comment.owner)}</div>
+          <div key={comment.id} className="comment flex text-gray-800">
+
+              <p className=" mr-3">{comment.description}</p>
+              <p className=" mr-3">{getDate(comment.createdAt)}</p>
+              <p className=" mr-3">{getuser(comment.owner)}</p>
+
             </div>
-          </div>
         )
       })}
     </>

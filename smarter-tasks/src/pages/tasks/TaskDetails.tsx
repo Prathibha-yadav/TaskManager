@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Fragment, useState } from "react";
@@ -45,7 +46,7 @@ const TaskDetails = () => {
   const {
     register,
     handleSubmit,
-    formState: {errors},
+    formState: {},
   } = useForm<TaskFormUpdatePayload>({
     defaultValues: {
       title: selectedTask.title,
