@@ -15,13 +15,14 @@ import ProjectContainer from "../pages/projects/ProjectContainer";
 const router = createBrowserRouter([
   { path: "/", element: <Navigate to="/account/projects" replace /> },
   {
-    path: "/signin",
-    element: <Signin />,
-  },
-  {
     path: "/signup",
     element: <Signup />,
   },
+  {
+    path: "/signin",
+    element: <Signin />,
+  },
+  
   {
     path: "/logout",
     element: <Logout />,
