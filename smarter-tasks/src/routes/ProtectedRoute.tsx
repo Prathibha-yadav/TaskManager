@@ -7,5 +7,5 @@ export default function ProtectedRoute({ children }: { children: JSX.Element }) 
   if (authenticated) {
     return <>{children}</>;
   }
-  return <Navigate to="/signin" replace  state={{ referrer: pathname }} />;
+  return <Navigate to="/signup" replace  state={{ referrer: pathname }} />;
 }
