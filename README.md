@@ -1,5 +1,5 @@
 # Smarter Tasks 
-Live Application Link: [Smarter Tasks ](https://friendly-lebkuchen-2dddb6.netlify.app/signin)
+Live Application Link: [Smarter Tasks ](https://smarter-taskss.netlify.app/signup)
 
 ## Project Overview
 
